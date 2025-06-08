@@ -4,24 +4,48 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "build": "NEXT_TELEMETRY_DISABLED=1 NODE_ENV=production next build",
+    "start": "NODE_ENV=production node server.js",
+    "server": "NODE_ENV=production node server.js",
     "lint": "next lint"
   },
   "dependencies": {
+    "@fortawesome/free-brands-svg-icons": "^6.7.2",
+    "@headlessui/react": "^2.2.0",
+    "@solana/wallet-adapter-base": "^0.9.24",
+    "@solana/wallet-adapter-react": "^0.15.36",
+    "@solana/wallet-adapter-react-ui": "^0.9.36",
+    "@solana/wallet-adapter-wallets": "^0.19.33",
+    "@solana/web3.js": "^1.98.0",
+    "@tensorflow/tfjs": "^4.17.0",
+    "daisyui": "^5.0.6",
+    "framer-motion": "^12.5.0",
+    "lucide-react": "^0.483.0",
+    "next": "15.2.3",
+    "postcss": "^8.5.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "next": "15.2.3"
+    "react-hot-toast": "^2.5.2",
+    "react-icons": "^4.10.1",
+    "react-markdown": "^8.0.6",
+    "react-syntax-highlighter": "^15.6.1",
+    "react-use-websocket": "^4.13.0",
+    "recharts": "^2.15.1",
+    "rehype-raw": "^6.1.1",
+    "rehype-sanitize": "^5.0.1",
+    "remark-gfm": "^4.0.1",
+    "tailwind-merge": "^3.0.2"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4.0.15",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4",
+    "@types/react-syntax-highlighter": "^15.5.13",
     "eslint": "^9",
     "eslint-config-next": "15.2.3",
-    "@eslint/eslintrc": "^3"
+    "tailwindcss": "^4.0.15",
+    "typescript": "^5"
   }
 }

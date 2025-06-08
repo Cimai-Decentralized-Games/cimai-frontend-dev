@@ -1,15 +1,82 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Fix for DaisyUI 5 theme */
+@plugin "daisyui";
+
+@plugin "daisyui/theme" {
+  name: "business";
+  default: true;
+  prefersdark: true;
+  color-scheme: "dark";
+  
+  /* Base colors */
+  --color-base-100: oklch(20% 0 0);
+  --color-base-200: oklch(22.648% 0 0);
+  --color-base-300: oklch(20.944% 0 0);
+  --color-base-content: oklch(84.87% 0 0);
+  
+  /* Primary colors */
+  --color-primary: oklch(79% 0.209 151.711);
+  --color-primary-content: oklch(88.34% 0.019 251.473);
+  
+  /* Secondary colors */
+  --color-secondary: oklch(64.092% 0.027 229.389);
+  --color-secondary-content: oklch(12.818% 0.005 229.389);
+  
+  /* Accent colors */
+  --color-accent: oklch(75% 0.183 55.934);
+  --color-accent-content: oklch(13.454% 0.033 35.791);
+  
+  /* Neutral colors */
+  --color-neutral: oklch(44% 0.043 257.281);
+  --color-neutral-content: oklch(85.488% 0.002 253.041);
+  
+  /* State colors */
+  --color-info: oklch(62.616% 0.143 240.033);
+  --color-info-content: oklch(12.523% 0.028 240.033);
+  --color-success: oklch(87% 0.169 91.605);
+  --color-success-content: oklch(14.045% 0.018 156.596);
+  --color-warning: oklch(77.482% 0.115 81.519);
+  --color-warning-content: oklch(15.496% 0.023 81.519);
+  --color-error: oklch(51.61% 0.146 29.674);
+  --color-error-content: oklch(90.322% 0.029 29.674);
+  
+  /* Component styling */
+  --radius-selector: 1rem;
+  --radius-field: 1rem;
+  --radius-box: 2rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 1;
+  --noise: 1;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Ensure buttons are visible */
+.btn {
+  @apply text-base-content bg-base-300 border-base-content/20 hover:bg-base-content/20;
+}
+
+.btn-primary {
+  @apply text-primary-content bg-primary border-primary/80 hover:bg-primary/80;
+}
+
+.btn-secondary {
+  @apply text-secondary-content bg-secondary border-secondary/80 hover:bg-secondary/80;
+}
+
+.btn-accent {
+  @apply text-accent-content bg-accent border-accent/80 hover:bg-accent/80;
+}
+
+/* Ensure cards have proper styling */
+.card {
+  @apply bg-base-200 text-base-content;
+}
+
+/* Ensure proper contrast for text */
+body {
+  @apply bg-base-100 text-base-content;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -23,4 +90,34 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Wallet adapter button fixes */
+.wallet-adapter-dropdown {
+  display: flex;
+  align-items: center;
+}
+
+.wallet-adapter-button {
+  height: auto !important;
+  padding: 0.5rem 1rem !important;
+  line-height: normal !important;
+  background-color: hsl(var(--p)) !important;
+  border-radius: var(--rounded-btn, 0.5rem) !important;
+  font-weight: 600 !important;
+}
+
+.wallet-adapter-button:hover {
+  background-color: hsl(var(--pf)) !important;
+}
+
+.wallet-adapter-button:not([disabled]):hover {
+  background-color: hsl(var(--pf)) !important;
+}
+
+/* Fix for wallet adapter dropdown positioning */
+.wallet-adapter-dropdown-list {
+  position: absolute !important;
+  right: 0 !important;
+  z-index: 999 !important;
 }
